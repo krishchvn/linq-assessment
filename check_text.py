@@ -37,16 +37,3 @@ class Visual_Text_Test:
         time.sleep(1)
         self.driver.quit()
         
-
-# if __name__ == "__main__":
-#     url = "https://linqapp.com/welcome"
-
-#     test = Visual_Text_Test()
-#     test.open_page(url)
-#     text = test.extract_shadow_roots_and_text()
-#     if text == "One Platform to Meet, Manage, and Close.":
-#         print("✅ Visual Test Case Passed")
-#     else:
-#         print("❌ Visual Test Case Failed")
-    
-#     test.quit()
