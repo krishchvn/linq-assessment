@@ -33,4 +33,4 @@ jobs:
 
     - name: Run tests
       run: |
-        python runs_all_tests.py
+        python run_all_tests.py
