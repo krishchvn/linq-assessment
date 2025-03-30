@@ -9,7 +9,7 @@ Google Chrome >= v132  installed;
 ## Setup
 1. Head over to https://github.com/krishchvn/linq-assessment, clone the repository using git clone https://github.com/krishchvn/linq-assessment.git
 2. Make sure you have chrome stable version installed and check version using chrome://version in chrome url input (should be 132 or greater for smooth operations). Also, you should have python installed (preferably v3.10)
-3. Install chromedriver of same major version as chrome (I'm using chromedriver v134 as I'm using chrome version 134.0.1)
+3. Install chromedriver of same major version as chrome (I'm using chromedriver v134 as I'm using chrome version 134.0.6998)
 4. Place chromedriver.exe in same directory as where you cloned the git repo.
 5. You can install selenium and webdriver-manager using pip install selenium; pip install webdriver-manager or you can run requirements.text by pip install requirements.txt
 6. Run command python run_all_tests.py.
