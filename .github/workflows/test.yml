@@ -73,13 +73,13 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Chrome (Version 134.0.6998.165)
+    - name: Install Google Chrome (Latest Stable)
       shell: pwsh
-      run: choco install googlechrome --version=134.0.6998.165 --no-progress --force
+      run: choco install googlechrome --no-progress --force
 
-    - name: Install ChromeDriver (Matching Version)
-      shell: pwsh
-      run: choco install chromedriver --version=134.0.6998.165 --no-progress --force
+    - name: Install ChromeDriver using WebDriver Manager
+      run: |
+        python -c "from selenium import webdriver; from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
 
     # - name: Verify Chrome and ChromeDriver
     #   run: |
