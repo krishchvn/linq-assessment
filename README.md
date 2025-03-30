@@ -1,29 +1,32 @@
-<b>Potential Bug</b>: ID, CLASS_NAME for input field for phone number on linqapp.com/welcome is different on every browser, and can change after click on other links
+## linq-assessment
 
-On Chrome, Brave
+Hello!
 
-Initial occurrence: `<input name ="input-4" id ="input-3">`
+## Prerequisites
 
-After clicking on Email button: `<input name ="input-7" id ="input-6">`
+Python 3.10 installed; Google Chrome >= v132 installed;
 
-On Mozilla
+## Setup
 
-Initial occurrence: `<input name ="input-8" id ="input-7">`
+1. Head over to https://github.com/krishchvn/linq-assessment, clone the repository using git clone https://github.com/krishchvn/linq-assessment.git
+2. Make sure you have chrome stable version installed and check version using chrome://version in chrome url input (should be 132 or greater for smooth operations). Also, you should have python installed (preferably v3.10)
+3. Install chromedriver of same major version as chrome (I'm using chromedriver v134 as I'm using chrome version 134.0.6998)
+4. Place chromedriver.exe in same directory as where you cloned the git repo.
+5. You can install selenium and webdriver-manager using pip install selenium; pip install webdriver-manager or you can run requirements.text by pip install requirements.txt
+6. Run command python run_all_tests.py.
 
-After clicking on Email button: `<input name ="input-14" id ="input-13">`
+Warning: These tests are run on Windows, if you use MacOS or any Linux distro, be sure to update executable path for chromedriver
 
-<b>Steps to Reproduce</b>:
+Code where change might be needed: `self.service = Service(executable_path="chromedriver.exe")`
 
-Visit 'https://linqapp.com/welcome', open Inspect and go to input field element. You might see Initial Occurence as per browser.
+## Test Structure
 
-Click on Email Authentication button, you should be navigated to 'https://linqapp.com/auth-page', press back, and open inspect and input element. Fields ID and Class_Name should be changed.
+1.check_text.py - Checks visual text if visible on linqapp.com/welcome <br> 2.check_homepage_button.py - Checks homepage button functionality, to redirect to appropriate link<br> 3.auth_tests/ - folder containing tests to check authentication links<br> 4.auth_tests/check_email_button.py - checks if email auth button redirects to linqapp.com/auth-page and back button functionality<br> 5.auth_tests/check_apple_button.py - checks if apple auth button redirects to appropriate link <br>6.auth_tests/check_google_button.py - checks if google auth button redirects to appropriate link <br>7.auth_tests/check_linkedin_button.py - checks if linkedin auth button redirects to appropriate link
 
-There are also other occurrences such as `<input name ="input-18" id ="input-17">`, `<input name ="input-22" id ="input-21">`, etc, which I am not able to reproduce as of now, but I will keep trying
+## Run Tests
 
-<b>Why I think this is a bug and not a security feature:</b>
+Run command python run_all_tests.py and it should run all test files.
 
-1. If this was meant to be a security feature, I think a developer might add a random string to the input id or class-name (ex: "input-ae34ff") everytime page refreshes rather than numbers with a difference of 1.
+I've also added Github Actions and a potential bug in bug_report.md
 
-2. I could not notice any certain pattern of input-'number' related to number of clicks, or links visited, except Email button click which changes inputid and classname to input-7 and input-6
-
-3. It becomes difficult for testers to access such elements whose xpath or css selectors change without pattern.
+Thank you for visiting!
