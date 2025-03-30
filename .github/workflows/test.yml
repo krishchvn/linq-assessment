@@ -74,20 +74,18 @@ jobs:
         python-version: '3.10'
 
     - name: Install Chrome
-        run: |
-          choco install googlechrome --no-progress --force
-        shell: pwsh
+      shell: pwsh
+      run: choco install googlechrome --no-progress --force
 
-      - name: Install ChromeDriver
-        run: |
-          choco install chromedriver --no-progress --force
-        shell: pwsh
+    - name: Install ChromeDriver
+      shell: pwsh
+      run: choco install chromedriver --no-progress --force
 
-      - name: Verify Chrome and ChromeDriver
-        run: |
-          chrome --version
-          chromedriver --version
-        shell: pwsh 
+    - name: Verify Chrome and ChromeDriver
+      run: |
+        chrome --version
+        chromedriver --version
+      shell: pwsh 
         
     - name: Install dependencies
       run: |
