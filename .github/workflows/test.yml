@@ -81,18 +81,17 @@ jobs:
         # Install Chrome
         Invoke-WebRequest -Uri "$BASE_URL/$CHROME_VERSION/win64/chrome-win64.zip" -OutFile "chrome-win64.zip"
         Expand-Archive -Path "chrome-win64.zip" -DestinationPath "chrome"
-        Move-Item -Path "chrome/chrome-win64/chrome.exe" -Destination "C:\Program Files\Google\Chrome\Application\chrome.exe" -Force
+        Move-Item -Path "chrome/chrome-win64/chrome.exe" -Destination "'D:\a\linq-assessment\linq-assessment\chrome.exe" -Force
 
         # Install ChromeDriver
         Invoke-WebRequest -Uri "$BASE_URL/$CHROME_VERSION/win64/chromedriver-win64.zip" -OutFile "chromedriver-win64.zip"
-        Expand-Archive -Path "chromedriver-win64.zip" -DestinationPath "chromedriver"
-        New-Item -ItemType Directory -Path "C:\chromedriver" -Force
-        Move-Item -Path "chromedriver/chromedriver-win64/chromedriver.exe" -Destination "C:\chromedriver\chromedriver.exe" -Force
-        $env:PATH += ";C:\chromedriver"
+        Expand-Archive -Path "chromedriver-win64.zip" -DestinationPath "'D:\a\linq-assessment\linq-assessment"
+        New-Item -ItemType Directory -Path "'D:\a\linq-assessment\linq-assessment" -Force
+        $env:PATH += ";'D:\a\linq-assessment\linq-assessment"
 
         # Verify installations
-        & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
-        & "C:\chromedriver\chromedriver.exe" --version
+        & "'D:\a\linq-assessment\linq-assessment" --version
+        & "'D:\a\linq-assessment\linq-assessment" --version
 
     - name: Install dependencies
       run: |
