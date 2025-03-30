@@ -73,26 +73,22 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Chrome & ChromeDriver (Windows)
-      run: |
-        $CHROME_VERSION = "134.0.6998.165"
-        $BASE_URL = "https://storage.googleapis.com/chrome-for-testing-public"
+    - name: Install Chrome
+        run: |
+          choco install googlechrome --no-progress --force
+        shell: pwsh
 
-        # Install Chrome
-        Invoke-WebRequest -Uri "$BASE_URL/$CHROME_VERSION/win64/chrome-win64.zip" -OutFile "chrome-win64.zip"
-        Expand-Archive -Path "chrome-win64.zip" -DestinationPath "chrome"
-        Move-Item -Path "chrome/chrome-win64/chrome.exe" -Destination "'D:\a\linq-assessment\linq-assessment\chrome.exe" -Force
+      - name: Install ChromeDriver
+        run: |
+          choco install chromedriver --no-progress --force
+        shell: pwsh
 
-        # Install ChromeDriver
-        Invoke-WebRequest -Uri "$BASE_URL/$CHROME_VERSION/win64/chromedriver-win64.zip" -OutFile "chromedriver-win64.zip"
-        Expand-Archive -Path "chromedriver-win64.zip" -DestinationPath "'D:\a\linq-assessment\linq-assessment"
-        New-Item -ItemType Directory -Path "'D:\a\linq-assessment\linq-assessment" -Force
-        $env:PATH += ";'D:\a\linq-assessment\linq-assessment"
-
-        # Verify installations
-        & "'D:\a\linq-assessment\linq-assessment" --version
-        & "'D:\a\linq-assessment\linq-assessment" --version
-
+      - name: Verify Chrome and ChromeDriver
+        run: |
+          chrome --version
+          chromedriver --version
+        shell: pwsh
+        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
