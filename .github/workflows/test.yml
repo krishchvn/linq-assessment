@@ -87,7 +87,7 @@ jobs:
         run: |
           chrome --version
           chromedriver --version
-        shell: pwsh
+        shell: pwsh 
         
     - name: Install dependencies
       run: |
