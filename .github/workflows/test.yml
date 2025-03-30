@@ -73,19 +73,19 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Chrome
+    - name: Install Chrome (Version 134.0.6998.165)
       shell: pwsh
-      run: choco install googlechrome --no-progress --force
+      run: choco install googlechrome --version=134.0.6998.165 --no-progress --force
 
-    - name: Install ChromeDriver
+    - name: Install ChromeDriver (Matching Version)
       shell: pwsh
-      run: choco install chromedriver --no-progress --force
+      run: choco install chromedriver --version=134.0.6998.165 --no-progress --force
 
-    - name: Verify Chrome and ChromeDriver
-      run: |
-        chrome --version
-        chromedriver --version
-      shell: pwsh 
+    # - name: Verify Chrome and ChromeDriver
+    #   run: |
+    #     chrome --version
+    #     chromedriver --version
+    #   shell: pwsh 
         
     - name: Install dependencies
       run: |
